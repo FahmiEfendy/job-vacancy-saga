@@ -1,0 +1,14 @@
+{
+  "job": [
+    {
+      "id": "1",
+      "companyName": "Facebook",
+      "jobTitle": "Full Stack Developer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
+      "requirements": ["JavaScript", "React", "Express.js", "MySQL"],
+      "jobLocation": "United States",
+      "employment Type": "Full Time",
+      "salary": "Rp10.000.000"
+    }
+  ]
+}
