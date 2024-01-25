@@ -1,1 +1,199 @@
 @import '@styles/base';
+
+.background-banner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url('../../static/images/banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include directionX;
+  justify-content: center;
+  height: 80vh;
+
+  .container {
+    @include directionY;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    color: $color-white;
+    @include apply-at-lg-size {
+      @include wrapper;
+      padding: 80px 40px;
+    }
+    .hero-text {
+      h1 {
+        font-weight: 600;
+        margin: 0;
+        @include apply-at-lg-size {
+          font-size: 75px;
+          width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      p {
+        font-size: 14px;
+        font-weight: 300;
+        @include apply-at-lg-size {
+          font-size: 22px;
+        }
+      }
+    }
+    .hero-btn {
+      @include directionX;
+      gap: 30px;
+      justify-content: center;
+      .btn-primary {
+        color: var(--color-text-btn);
+        text-decoration: none;
+        background-color: var(--color-bg-btn);
+        font-size: 16px;
+        padding: 5px 10px;
+        border-radius: 6px;
+        @include apply-at-lg-size {
+          padding: 10px 20px;
+          font-size: 25px;
+        }
+      }
+      .btn-secondary {
+        color: var(--color-text-btn);
+        text-decoration: none;
+        border: 1px solid var(--color-text-btn);
+        font-size: 16px;
+        padding: 5px 10px;
+        border-radius: 6px;
+        @include apply-at-lg-size {
+          padding: 10px 20px;
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+.job-list {
+  .container {
+    @include directionY;
+    justify-content: center;
+    padding: 10px;
+    @include apply-at-lg-size {
+      //   @include wrapper;
+      padding: 80px 40px;
+    }
+    .list-header {
+      text-align: center;
+      margin: 30px 0;
+      h2 {
+        font-weight: 600;
+        margin: 0;
+        @include apply-at-lg-size {
+          font-size: 46px;
+        }
+      }
+      p {
+        font-size: 14px;
+        @include apply-at-lg-size {
+          font-size: 22px;
+          color: var(--color-text-secondary);
+        }
+      }
+    }
+    .search-job {
+      text-align: center;
+      margin-bottom: 40px;
+      .search-item {
+        @include directionX;
+        justify-content: center;
+        input {
+          width: 70%;
+          height: 45px;
+          border: 2px solid #fff;
+          outline: unset;
+          padding: 0 10px;
+          border-radius: 10px 0 0 10px;
+          transition: 0.3s all ease;
+        }
+        input:focus {
+          border: 2px solid var(--color-bg-btn);
+        }
+        button {
+          color: var(--color-text-btn);
+          background-color: var(--color-bg-btn);
+          padding: 0 20px;
+          border-radius: 0 10px 10px 0;
+          border: none;
+          cursor: pointer;
+          transition: 0.3s all ease;
+        }
+        button:hover {
+          filter: brightness(90%);
+        }
+      }
+    }
+    .grid-wrapper {
+      .grid {
+        gap: 30px;
+        .card {
+          color: var(--color-text-card);
+          background-color: var(--color-bg-card);
+          border: 3px solid var(--color-bg-card);
+          padding: 20px 15px;
+          border-radius: 15px;
+          transition: 0.3s all ease;
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          @include directionY;
+          gap: 30px;
+          .card-header {
+            @include directionX;
+            img {
+              width: 60px;
+              @include apply-at-lg-size {
+                width: 80px;
+              }
+            }
+            h3 {
+              font-size: 16px;
+              margin: 0;
+              @include apply-at-lg-size {
+                font-size: 26px;
+              }
+            }
+            small {
+              font-size: 14px;
+              @include apply-at-lg-size {
+                font-size: 16px;
+              }
+            }
+          }
+          .card-body {
+            @include directionX;
+            justify-content: space-between;
+            font-size: 20px;
+            align-items: center;
+            span {
+              @include directionX;
+              gap: 6px;
+              align-items: center;
+              .icon {
+                align-items: center;
+                font-size: 14px;
+                @include apply-at-lg-size {
+                  font-size: 26px;
+                }
+              }
+              p {
+                margin: 0;
+                font-size: 11px;
+                @include apply-at-lg-size {
+                  font-size: 20px;
+                }
+              }
+            }
+          }
+        }
+        .card:hover {
+          border: 3px solid var(--color-bg-btn);
+        }
+      }
+    }
+  }
+}
