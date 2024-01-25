@@ -7,6 +7,7 @@ const urls = {
   ping: 'ping.json',
   getJob: '/job',
   getJobDetail: '/job',
+  createJob: '/job',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -33,3 +34,4 @@ export const ping = () => callAPI(urls.ping, 'get');
 
 export const getJob = () => callAPI(urls.getJob, 'GET');
 export const getJobDetail = (id) => callAPI(`${urls.getJobDetail}/${id}`, 'GET');
+export const createJob = (data) => callAPI(urls.createJob, 'POST', {}, {}, data);
