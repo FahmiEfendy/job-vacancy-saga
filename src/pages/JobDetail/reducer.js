@@ -1,6 +1,9 @@
 import { produce } from 'immer';
 
 import {
+  CREATE_JOB_APPLICATION_FAILED,
+  CREATE_JOB_APPLICATION_REQUEST,
+  CREATE_JOB_APPLICATION_SUCCESS,
   DELETE_JOB_FAILED,
   DELETE_JOB_REQUEST,
   DELETE_JOB_SUCCESS,
@@ -15,6 +18,10 @@ export const initialState = {
     isError: null,
   },
   deleteJob: {
+    data: [],
+    isError: null,
+  },
+  jobApplication: {
     data: [],
     isError: null,
   },
@@ -55,6 +62,21 @@ const jobDetailReducer = (state = initialState, action) =>
       case DELETE_JOB_FAILED:
         draft.deleteJob.isError = action.error;
         draft.deleteJob.data = [];
+        break;
+
+      case CREATE_JOB_APPLICATION_REQUEST:
+        draft.jobApplication.isError = null;
+        draft.jobApplication.data = [];
+        break;
+
+      case CREATE_JOB_APPLICATION_SUCCESS:
+        draft.jobApplication.isError = null;
+        draft.jobApplication.data = action.data;
+        break;
+
+      case CREATE_JOB_APPLICATION_FAILED:
+        draft.jobApplication.isError = action.error;
+        draft.jobApplication.data = [];
         break;
 
       default:

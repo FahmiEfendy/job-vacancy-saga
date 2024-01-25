@@ -1,9 +1,15 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { deleteJob, getJobDetail } from '@domain/api';
+import { createJobApplication, deleteJob, getJobDetail } from '@domain/api';
 import { setLoading } from '@containers/App/actions';
-import { DELETE_JOB_REQUEST, GET_JOB_DETAIL_REQUEST } from './constants';
-import { deleteJobFailed, deleteJobSuccess, getJobDetailFailed, getJobDetailSuccess } from './actions';
+import { CREATE_JOB_APPLICATION_REQUEST, DELETE_JOB_REQUEST, GET_JOB_DETAIL_REQUEST } from './constants';
+import {
+  createJobApplicationSuccess,
+  deleteJobFailed,
+  deleteJobSuccess,
+  getJobDetailFailed,
+  getJobDetailSuccess,
+} from './actions';
 
 function* doGetJobDetail(action) {
   yield put(setLoading(true));
@@ -33,7 +39,22 @@ function* doCreateJob(action) {
   yield put(setLoading(false));
 }
 
+function* doCreateApplication(action) {
+  yield setLoading(true);
+
+  try {
+    const response = yield call(createJobApplication, action.payload);
+
+    yield put(createJobApplicationSuccess(response));
+  } catch (err) {
+    yield put(createJobApplicationSuccess(action.error));
+  }
+
+  yield setLoading(false);
+}
+
 export default function* jobDetailSaga() {
   yield takeLatest(GET_JOB_DETAIL_REQUEST, doGetJobDetail);
   yield takeLatest(DELETE_JOB_REQUEST, doCreateJob);
+  yield takeLatest(CREATE_JOB_APPLICATION_REQUEST, doCreateApplication);
 }

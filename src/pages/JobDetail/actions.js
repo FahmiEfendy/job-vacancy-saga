@@ -1,4 +1,7 @@
 import {
+  CREATE_JOB_APPLICATION_FAILED,
+  CREATE_JOB_APPLICATION_REQUEST,
+  CREATE_JOB_APPLICATION_SUCCESS,
   DELETE_JOB_FAILED,
   DELETE_JOB_REQUEST,
   DELETE_JOB_SUCCESS,
@@ -36,5 +39,21 @@ export const deleteJobSuccess = (data) => ({
 
 export const deleteJobFailed = (error) => ({
   type: DELETE_JOB_FAILED,
+  error,
+});
+
+// Create Application
+export const createJobApplicationRequest = (payload) => ({
+  type: CREATE_JOB_APPLICATION_REQUEST,
+  payload,
+});
+
+export const createJobApplicationSuccess = (data) => ({
+  type: CREATE_JOB_APPLICATION_SUCCESS,
+  data,
+});
+
+export const createJobApplicationFailed = (error) => ({
+  type: CREATE_JOB_APPLICATION_FAILED,
   error,
 });
