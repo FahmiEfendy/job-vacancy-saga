@@ -9,6 +9,16 @@
       "jobLocation": "United States",
       "employment Type": "Full Time",
       "salary": "Rp10.000.000"
+    },
+    {
+      "id": "2",
+      "companyName": "Google",
+      "jobTitle": "Front End Developer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
+      "requirements": ["HTML", "CSS", "JavaScript", "TypeScript"],
+      "jobLocation": "Indonesia",
+      "employment Type": "Part Time",
+      "salary": "Rp1.300.000"
     }
   ]
 }

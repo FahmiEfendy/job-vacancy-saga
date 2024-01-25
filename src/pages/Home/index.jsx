@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import { connect, useDispatch } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { ping } from '@containers/App/actions';
 import { selectJob } from './selectors';
 import { getJobRequest } from './actions';
 
@@ -20,14 +19,10 @@ const Home = ({ job }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ping());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getJobRequest());
   }, [dispatch]);
 
-  console.log(job, '<<<JOB');
+  console.log(job, '<<< JOB');
 
   return (
     <div>

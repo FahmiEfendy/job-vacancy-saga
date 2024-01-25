@@ -5,6 +5,7 @@ import clientReducer, { storedKey as storedClientState } from '@containers/Clien
 import languageReducer from '@containers/Language/reducer';
 
 import homeReducer, { storedKey as storedHomeReducer } from '@pages/Home/reducer';
+import jobDetailReducer, { storedKey as storedJobDetailReducer } from '@pages/JobDetail/reducer';
 
 import { mapWithPersistor } from './persistence';
 
@@ -13,6 +14,7 @@ const storedReducers = {
   client: { reducer: clientReducer, whitelist: storedClientState },
 
   home: { reducer: homeReducer, whitelist: storedHomeReducer },
+  jobDetail: { reducer: jobDetailReducer, whitelist: storedJobDetailReducer },
 };
 
 const temporaryReducers = {
