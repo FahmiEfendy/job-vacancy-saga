@@ -59,3 +59,23 @@ $breakpoints: (
   display: flex;
   flex-direction: row;
 }
+
+@mixin btnPrimary {
+  color: var(--color-text-btn);
+  text-decoration: none;
+  background-color: var(--color-bg-btn);
+  border-radius: 6px;
+  outline: unset;
+  border: unset;
+  cursor: pointer;
+}
+
+@mixin btnSecondary {
+  color: var(--color-text-btn-sec);
+  background-color: transparent;
+  text-decoration: none;
+  border: 2px solid var(--color-text-btn-sec);
+  border-radius: 6px;
+  outline: unset;
+  cursor: pointer;
+}

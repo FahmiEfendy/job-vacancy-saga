@@ -32,18 +32,19 @@ const Home = () => {
       <section className={classes['background-banner']}>
         <div className={classes['container']}>
           <div className={classes['hero-text']}>
-            <h1>Find The Job That Shine Your Life</h1>
+            <h1>
+              <FormattedMessage id="app_greeting" />
+            </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate illum, laudantium reiciendis excepturi
-              autem labore assumenda aliquid facere quia amet tempora veritatis
+              <FormattedMessage id="app_text_header" />
             </p>
           </div>
           <div className={classes['hero-btn']}>
             <a href="" className={classes['btn-primary']}>
-              Get Started
+              <FormattedMessage id="app_btn_hero_title" />
             </a>
             <a href="" className={classes['btn-secondary']}>
-              Learn More
+            <FormattedMessage id="app_btn_hero_title2" />
             </a>
           </div>
         </div>
@@ -51,15 +52,16 @@ const Home = () => {
       <section className={classes['job-list']}>
         <div className={classes['container']}>
           <div className={classes['list-header']}>
-            <h2>Explore The Latest Job Openings</h2>
-            <p>Discover jobs most relevant to you by location.</p>
+            <h2><FormattedMessage id="app_job_title_header" /></h2>
+            <p><FormattedMessage id='app_job_desc_header' />
+            </p>
           </div>
 
           {/* Search */}
-          <div className={classes["search-job"]}>
-            <div className={classes["search-item"]}>
+          <div className={classes['search-job']}>
+            <div className={classes['search-item']}>
               <input type="text" />
-              <button>Search</button>
+              <button><FormattedMessage id="app_btn_search_title" /></button>
             </div>
           </div>
 

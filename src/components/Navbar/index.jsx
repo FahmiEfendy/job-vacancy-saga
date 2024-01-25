@@ -50,7 +50,16 @@ const Navbar = ({ title, locale, theme }) => {
           <img src="/vite.svg" alt="logo" className={classes.logo} />
           <div className={classes.title}>Job Portal</div>
         </div>
+
         <div className={classes.toolbar}>
+          <div className={classes.btnLoginRegis}>
+            <button className={classes['btn-primary']}>
+              <FormattedMessage id="app_register_title" />
+            </button>
+            <button className={classes['btn-secondary']}>
+              <FormattedMessage id="app_login_title" />
+            </button>
+          </div>
           <div className={classes.theme} onClick={handleTheme} data-testid="toggleTheme">
             {theme === 'light' ? <NightsStayIcon /> : <LightModeIcon />}
           </div>
@@ -60,6 +69,7 @@ const Navbar = ({ title, locale, theme }) => {
             <ExpandMoreIcon />
           </div>
         </div>
+
         <Menu open={open} anchorEl={menuPosition} onClose={handleClose}>
           <MenuItem onClick={() => onSelectLang('id')} selected={locale === 'id'}>
             <div className={classes.menu}>
