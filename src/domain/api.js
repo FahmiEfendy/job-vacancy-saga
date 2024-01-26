@@ -5,6 +5,13 @@ import request from '@utils/request';
 
 const urls = {
   ping: 'ping.json',
+
+  getJob: '/job',
+  getJobDetail: '/job',
+  createJob: '/job',
+  deleteJob: '/job',
+
+  createJobApplication: '/application',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -28,3 +35,10 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 };
 
 export const ping = () => callAPI(urls.ping, 'get');
+
+export const getJob = () => callAPI(urls.getJob, 'GET');
+export const getJobDetail = (id) => callAPI(urls.getJobDetail, 'GET', {}, { jobId: id });
+export const createJob = (data) => callAPI(urls.createJob, 'POST', {}, {}, data);
+export const deleteJob = (id) => callAPI(`${urls.deleteJob}/${id}`, 'DELETE');
+
+export const createJobApplication = (data) => callAPI(urls.createJobApplication, 'POST', {}, {}, data);
