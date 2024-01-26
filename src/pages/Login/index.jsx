@@ -38,6 +38,9 @@ const Login = ({ login }) => {
       password: user.password,
     };
     dispatch(getLogin(dataUser));
+    // if (login.isEmployer === true) {
+
+    // }
     navigate('/');
   };
   console.log(login, '<<< LOGIN');

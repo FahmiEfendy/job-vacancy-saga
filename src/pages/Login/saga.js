@@ -8,7 +8,7 @@ import { setLogin } from './actions';
 function* doLogin({ dataUser }) {
   yield put(setLoading(true));
   try {
-    const response = yield call(getLogin(dataUser));
+    const response = yield call(getLogin, dataUser);
     yield put(setLogin(response));
     console.log(response, '<<< response login');
   } catch (error) {
