@@ -1,6 +1,7 @@
 @import '@styles/base';
 
 .grid-wrapper {
+  display: inline-block;
     .grid {
       gap: 30px;
       .card {
