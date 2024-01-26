@@ -35,6 +35,7 @@ const JobDetail = ({ jobDetail }) => {
       id: uuidv4(),
       jobId,
       userId: '2', // Get userId From Logged User
+      employerId: '3', // Get employerId from Logged User
       coverLetter: 'This is Cover Letter Example',
     };
 

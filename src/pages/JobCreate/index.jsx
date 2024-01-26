@@ -22,6 +22,7 @@ const JobCreate = () => {
   const submitHandler = () => {
     const payload = {
       jobId: uuidv4(),
+      employerId: '1', // Get employerId From Logged User
       companyName: 'Facebook',
       jobTitle: 'Full Stack Developer',
       jobDescription:
