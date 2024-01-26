@@ -1,0 +1,121 @@
+{
+  "job": [
+    {
+      "jobId": "1",
+      "employerId": "1",
+      "companyName": "Facebook",
+      "jobTitle": "Full Stack Developer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
+      "requirements": "JavaScript, React, Express.js, MySQL",
+      "jobLocation": "United States",
+      "employment Type": "Full Time",
+      "salary": "Rp10.000.000"
+    },
+    {
+      "jobId": "2",
+      "employerId": "1",
+      "companyName": "Google",
+      "jobTitle": "Front End Developer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
+      "requirements": "HTML, CSS, JavaScript, TypeScript",
+      "jobLocation": "Indonesia",
+      "employment Type": "Part Time",
+      "salary": "Rp1.300.000"
+    },
+    {
+      "jobId": "3",
+      "employerId": "2",
+      "companyName": "Amazon",
+      "jobTitle": "Cloud Engineer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
+      "requirements": "AWS, Python, Docker, Kubernetes",
+      "jobLocation": "United Kingdom",
+      "employmentType": "Full Time",
+      "salary": "Rp15.000.000"
+    },
+    {
+      "jobId": "4",
+      "employerId": "2",
+      "companyName": "Microsoft",
+      "jobTitle": "Data Scientist",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
+      "requirements": "Python, R, Machine Learning, SQL",
+      "jobLocation": "United States",
+      "employmentType": "Full Time",
+      "salary": "Rp12.500.000"
+    },
+    {
+      "jobId": "5",
+      "employerId": "3",
+      "companyName": "Tesla",
+      "jobTitle": "Electrical Engineer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
+      "requirements": "Electrical Engineering, Circuit Design, MATLAB, Power Systems",
+      "jobLocation": "Germany",
+      "employmentType": "Full Time",
+      "salary": "Rp14.000.000"
+    },
+    {
+      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
+      "employerId": "3",
+      "companyName": "Facebook",
+      "jobTitle": "Full Stack Developer",
+      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
+      "requirements": "JavaScript, React, Express.js,MySQL",
+      "jobLocation": "United States",
+      "employment Type": "Full Time",
+      "salary": "Rp10.000.000"
+    }
+  ],
+  "application": [
+    {
+      "id": "db769e04-2fe2-4f9a-b1a9-58824be06266",
+      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
+      "employerId": "1",
+      "userId": "1",
+      "coverLetter": "This is Cover Letter Example"
+    },
+    {
+      "id": "8e489376-7652-4409-a0a4-9526b5df56dd",
+      "jobId": "1",
+      "employerId": "1",
+      "userId": "1",
+      "coverLetter": "This is Cover Letter Example"
+    },
+    {
+      "id": "9d5a930d-ab9b-4ee8-9cca-e83d85d0671f",
+      "jobId": "1",
+      "employerId": "2",
+      "userId": "2",
+      "coverLetter": "This is Cover Letter Example"
+    },
+    {
+      "id": "ce4a56b5-0cae-4652-85d7-a4f2d90008d0",
+      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
+      "employerId": "2",
+      "userId": "1",
+      "coverLetter": "This is Cover Letter Example"
+    },
+    {
+      "id": "a6d68cb7-f4a6-41ea-9129-83e247752e0d",
+      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
+      "userId": "1",
+      "employerId": "3",
+      "coverLetter": "This is Cover Letter Example"
+    },
+    {
+      "id": "ccce7f85-0373-4911-a44c-a32669936c5d",
+      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
+      "userId": "2",
+      "employerId": "3",
+      "coverLetter": "This is Cover Letter Example"
+    },
+    {
+      "id": "a183e5c4-0e23-47d6-a69b-ec0d189d52ac",
+      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
+      "userId": "2",
+      "employerId": "4",
+      "coverLetter": "This is Cover Letter Example"
+    }
+  ]
+}

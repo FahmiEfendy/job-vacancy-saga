@@ -1,0 +1,30 @@
+@import '@styles/base';
+
+.job-detail {
+    padding: 30px 0;
+  .container {
+    @include apply-at-lg-size {
+      @include wrapper;
+      .job-item {
+        @include apply-at-md-size {
+          @include directionX;
+          gap: 30px;
+          .job-head {
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 16px;
+                span {
+                    color: var(--color-text-secondary);
+                }
+            }
+            small {
+                font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

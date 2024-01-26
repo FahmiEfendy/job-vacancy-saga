@@ -1,16 +1,15 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
+import { connect, useDispatch } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { ping } from '@containers/App/actions';
 import classes from './style.module.scss';
 
-import { Box, Grid } from '@mui/material';
-
-import LogoComp from '../../static/images/spotify.png';
-
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import WorkIcon from '@mui/icons-material/Work';
+import GridJobs from "../../components/GridJobs"
+import { selectJob } from './selectors';
+import { getJobRequest } from './actions';
 
 // data = {
 //   id: '',
@@ -20,12 +19,14 @@ import WorkIcon from '@mui/icons-material/Work';
 //   employmentType: '',
 // };
 
-const Home = () => {
+const Home = ({ job }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ping());
+    dispatch(getJobRequest());
   }, [dispatch]);
+
+  console.log(job, '<<< JOB');
 
   return (
     <>
@@ -66,185 +67,19 @@ const Home = () => {
           </div>
 
           {/* List Job */}
-          <Box className={classes['grid-wrapper']}>
-            <Grid className={classes['grid']} container justifyContent="center" alignItems="center">
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item>
-                <div className={classes['card']}>
-                  <div className={classes['card-header']}>
-                    <img src={LogoComp} alt="" />
-                    <span>
-                      <h3>Software Engineer</h3>
-                      <small>Spotify</small>
-                    </span>
-                  </div>
-                  <div className={classes['card-body']}>
-                    <span>
-                      <LocationOnIcon className={classes['icon']} /> <p>Duren Kalibata</p>
-                    </span>
-                    <span>
-                      <WorkIcon className={classes['icon']} /> <p>Magang</p>
-                    </span>
-                  </div>
-                </div>
-              </Grid>
-            </Grid>
-          </Box>
+          <GridJobs />
         </div>
       </section>
     </>
   );
+};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+Home.propTypes = {
+  job: PropTypes.object,
 };
 
-export default Home;
+const mapStateToProps = createStructuredSelector({
+  job: selectJob,
+});
+
+export default connect(mapStateToProps)(Home);
