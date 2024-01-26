@@ -19,7 +19,7 @@ import { getJobRequest } from './actions';
 //   employmentType: '',
 // };
 
-const Home = ({ job }) => {
+const Home = ({ job, isApplication }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -79,6 +79,7 @@ const Home = ({ job }) => {
 
 Home.propTypes = {
   job: PropTypes.object,
+  isApplication: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({

@@ -6,6 +6,8 @@ import { createStructuredSelector } from 'reselect';
 import { selectJobApplication } from './selectors';
 import { deleteJobApplicationRequest, getJobApplicationRequest } from './actions';
 
+import GridJobs from '../../components/GridJobs';
+
 import classes from './style.module.scss';
 
 const JobApplication = ({ jobApplication }) => {
@@ -14,13 +16,13 @@ const JobApplication = ({ jobApplication }) => {
   useEffect(() => {
     dispatch(getJobApplicationRequest());
     // Hit This API To Get Job Applied By User
-    // dispatch(getJobApplicationRequest({ userId: '1' }));
+    // dispatch(getJobApplicationRequest({ userId: '2' }));
     // ===
     // Hit This API To Get Job Created By Employer
     // dispatch(getJobApplicationRequest({ employerId: '1' }));
     // ===
     // Hit This API To Get Applied User on a Job
-    // dispatch(getJobApplicationRequest({ jobId: '544c877f-2545-43f0-8cf2-9e49c9929e49' }));
+    // dispatch(getJobApplicationRequest({ jobId: '5' }));
   }, [dispatch]);
 
   const deleteApplicationHandler = () => {
@@ -33,6 +35,7 @@ const JobApplication = ({ jobApplication }) => {
   return (
     <>
       <p>This is Application List Pages!</p>
+      <GridJobs datas={jobApplication.data} isApplication />
       <button type="button" onClick={deleteApplicationHandler}>
         Click Me to Delete a Application
       </button>
