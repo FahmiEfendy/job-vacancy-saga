@@ -1,6 +1,6 @@
-// import { createSelector } from 'reselect';
-// import { initialState } from '@containers/App/reducer';
+import { createSelector } from 'reselect';
+import { initialState } from '@containers/App/reducer';
 
-// const selectHomeState = (state) => state.home || initialState;
+const selectLoginState = (state) => state.login || initialState;
 
-// export const selectPost = createSelector(selectHomeState, (state) => state.post);
+export const selectLogin = createSelector(selectLoginState, (state) => state.login);

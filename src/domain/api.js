@@ -5,8 +5,8 @@ import request from '@utils/request';
 
 const urls = {
   ping: 'ping.json',
-  register: 'register',
-  login: 'login',
+  register: '/users',
+  login: '/users',
 
   getJob: '/job',
   getJobDetail: '/job',
@@ -48,6 +48,4 @@ export const createJobApplication = (data) => callAPI(urls.createJobApplication,
 export const register = (dataUser) => {
   return callAPI(urls.register, 'POST', {}, {}, dataUser);
 };
-export const login = (dataUser) => {
-  return callAPI(urls.login, 'POST', {}, {}, dataUser);
-};
+export const getLogin = () => callAPI(urls.login, 'GET');

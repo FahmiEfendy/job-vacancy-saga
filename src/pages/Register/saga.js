@@ -10,6 +10,7 @@ function* doRegister({ dataUser }) {
   } catch (error) {
     console.log(error);
   }
+  yield put(setLoading(false));
 }
 
 export default function* registerSaga() {

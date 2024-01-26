@@ -8,6 +8,5 @@ import jobDetailSaga from '@pages/JobDetail/saga';
 import doCreateJobSaga from '@pages/JobCreate/saga';
 
 export default function* rootSaga() {
-  yield all([appSaga(), homeSaga(), jobDetailSaga(), doCreateJobSaga()]);
-  yield all([appSaga(), registerSaga(), loginSaga()]);
+  yield all([appSaga(), homeSaga(), jobDetailSaga(), doCreateJobSaga(), registerSaga(), loginSaga()]);
 }

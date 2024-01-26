@@ -25,7 +25,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { login } from './actions';
 import classes from './style.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { encryptPayload } from '@utils/encryptPayload';
+// import { encryptPayload } from '@utils/encryptPayload';
+// import { getLogin } from './actions';
 
 const defaultTheme = createTheme();
 
@@ -43,8 +44,8 @@ export default function Login() {
 
   const handleSubmit = () => {
     const dataUser = {
-      email: encryptPayload(user.email),
-      password: encryptPayload(user.password),
+      email: user.email,
+      password: user.password,
     };
     dispatch(login(dataUser));
     navigate('/');

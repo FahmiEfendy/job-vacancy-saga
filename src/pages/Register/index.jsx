@@ -6,6 +6,7 @@
 //   isEmployer: '',
 // };
 import * as React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -20,31 +21,36 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { encryptPayload } from '@utils/encryptPayload';
+// import { encryptPayload } from '@utils/encryptPayload';
 import { useDispatch } from 'react-redux';
 // import { Input } from '@mui/joy/Input';
 
 import classes from './style.module.scss';
-import { register } from '@domain/api';
+import { register } from './actions';
 
 const defaultTheme = createTheme();
 
 export default function Register() {
   const dispatch = useDispatch();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    isEmployer: false,
+  });
 
   const handleChange = (value, type) => {
     setUser({
       ...user,
-      [type]: value,
+      [type]: type === 'isEmployer' ? !user.isEmployer : value,
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const dataUser = {
-      fullname: encryptPayload(user.fullname),
-      email: encryptPayload(user.email),
-      password: encryptPayload(user.password),
+      id: uuidv4(),
+      fullname: user.fullname,
+      email: user.email,
+      password: user.password,
+      isEmployer: user.isEmployer ? true : false,
     };
     dispatch(register(dataUser));
   };
@@ -101,6 +107,13 @@ export default function Register() {
               // autoComplete="current-password"
               onChange={(e) => handleChange(e.target.value, 'password')}
               variant="filled"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox checked={user.isEmployer} onChange={(e) => handleChange(e.target.value, 'isEmployer')} />
+              }
+              label="I am an employer!"
+              name="isEmployer"
             />
             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} className={classes.button}>
               Register
