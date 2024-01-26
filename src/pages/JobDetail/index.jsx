@@ -10,7 +10,13 @@ import { createJobApplicationRequest, deleteJobRequest, getJobDetailRequest } fr
 
 import classes from './style.module.scss';
 
+import jobDetailReducer from './reducer';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import WorkIcon from '@mui/icons-material/Work';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { FormattedMessage } from 'react-intl';
+
+import GridJobs from '../../components/GridJobs';
 
 // data = {
 //   id: '',
@@ -23,42 +29,86 @@ import WorkIcon from '@mui/icons-material/Work';
 //   salary: '',
 // };
 
-const JobDetail = () => {
-  // const { jobId } = useParams();
+const JobDetail = ({ jobDetail }) => {
+  const dispatch = useDispatch();
+
+  const { jobId } = useParams();
+
+  const deleteHandler = () => {
+    dispatch(deleteJobRequest(jobId));
+  };
+  const applyJobHandler = () => {
+    const payload = {
+      id: uuidv4(),
+      jobId,
+      userId: '2', // Get userId From Logged User
+      employerId: '3', // Get employerId from Logged User
+      coverLetter: 'This is Cover Letter Example',
+    };
+
+    dispatch(createJobApplicationRequest(payload));
+  };
+
+  useEffect(() => {
+    dispatch(getJobDetailRequest(jobId));
+  }, [dispatch, jobId]);
+
+  console.log(jobDetail, '<<< JOB DETAIL');
 
   return (
     <>
       <section className={classes['job-detail']}>
         <div className={classes['container']}>
+          <div className={classes['title-head']}>
+            <h1>
+              <FormattedMessage id="app_header_title_job" />
+            </h1>
+          </div>
           <div className={classes['job-item']}>
             <div className={classes['job-head']}>
-              <h1>Staff Admin</h1>
+              <h1>{jobDetail?.data[0]?.jobTitle}</h1>
               <p>
-                PT Multi Hidrachrome Industri - <span>Jakarta</span>
+                {jobDetail?.data[0]?.companyName} - <span>{jobDetail?.data[0]?.jobLocation}</span>
               </p>
-              <small><WorkIcon className={classes["icon"]} />Magang</small>
+              <small>
+                <MonetizationOnIcon className={classes['icon']} />
+                {jobDetail?.data[0]?.salary}
+              </small>
+              <small>
+                <WorkIcon className={classes['icon']} />
+                {jobDetail?.data[0]?.employmentType}
+              </small>
+              <hr />
+              <div className={classes['btn-apply']}>
+                <button>
+                  <AddBoxIcon className={classes['icon']} /> <FormattedMessage id="app_btn_apply_title" />
+                </button>
+              </div>
             </div>
-            <div className={classes["job-body"]}>
-            <span>Tanggung Jawab</span>
-              <ul>
-                <li>Membuat Laporan Pembukuan</li>
-                <li>Menginput Data</li>
-              </ul>
-              <span>Persyaratan minimum</span>
-              <ul>
-                <li>Usia Maksimal 30 Tahun</li>
-                <li>Terbiasa Dengan Ms. Office</li>
-                <li>Berpenampilan Rapih</li>
-                <li>Berpengalaman Dibidang Accountan</li>
-                <li>Diutamakan Berdomisili Di Jakarta Barat</li>
-              </ul>
+            <div className={classes['job-body']}>
+              <span>
+                <FormattedMessage id="app_header_desc" />
+              </span>
+              <p>{jobDetail?.data[0]?.jobDescription}</p>
+              <span>
+                <FormattedMessage id="app_header_req" />
+              </span>
+              <p>{jobDetail?.data[0]?.requirements}</p>
             </div>
+          </div>
+          <div className={classes['job-vacancy']}>
+            <div className={classes['title-head']}>
+              <h4>
+                <FormattedMessage id="app_header_title_job2" />
+              </h4>
+            </div>
+            <GridJobs />
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 // const JobDetail = ({ jobDetail }) => {
 //   const dispatch = useDispatch();
 
@@ -103,12 +153,12 @@ const JobDetail = () => {
 //   );
 // };
 
-// JobDetail.propTypes = {
-//   jobDetail: PropTypes.object,
-// };
+JobDetail.propTypes = {
+  jobDetail: PropTypes.object,
+};
 
-// const mapStateToProps = createStructuredSelector({
-//   jobDetail: selectJobDetail,
-// });
+const mapStateToProps = createStructuredSelector({
+  jobDetail: selectJobDetail,
+});
 
-// export default connect(mapStateToProps)(JobDetail);
+export default connect(mapStateToProps)(JobDetail);

@@ -10,9 +10,14 @@ export default {
   app_login_title: "Masuk",
   app_register_title: "Daftar",
   app_btn_hero_title: "Mulai",
+  app_btn_apply_title: "Lamar",
   app_btn_search_title: "Cari",
   app_btn_hero_title2: "Pelajari",
   app_job_title_header: "Jelajahi Lowongan Kerja Terbaru",
   app_job_desc_header: "Keluarkan potensi Anda! Selami lautan peluang karir yang menarik dengan lowongan pekerjaan terbaru di beragam industri.",
+  app_header_title_job: "Detail Pekerjaan",
+  app_header_title_job2: "Lowongan",
+  app_header_desc: "Tanggung Jawab",
+  app_header_req: "Persyaratan minimum",
 
 };

@@ -11,7 +11,12 @@ export default {
   app_register_title: "Register",
   app_btn_hero_title: "Get Started",
   app_btn_search_title: "Search",
+  app_btn_apply_title: "Apply",
   app_btn_hero_title2: "Learn More",
   app_job_title_header: "Explore The Latest Job Openings",
   app_job_desc_header: "Unleash your potential! Dive into a sea of exciting career opportunities with the latest job openings across diverse industries.",
+  app_header_title_job: "Details Job",
+  app_header_title_job2: "Job Vacancy",
+  app_header_desc: "Responsibilities",
+  app_header_req: "Minimum requirements",
 };

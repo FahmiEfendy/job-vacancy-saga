@@ -1,15 +1,11 @@
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import { connect, useDispatch } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
 import { ping } from '@containers/App/actions';
 import classes from './style.module.scss';
 
 import GridJobs from "../../components/GridJobs"
-import { selectJob } from './selectors';
-import { getJobRequest } from './actions';
 
 // data = {
 //   id: '',
@@ -19,14 +15,12 @@ import { getJobRequest } from './actions';
 //   employmentType: '',
 // };
 
-const Home = ({ job }) => {
+const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getJobRequest());
+    dispatch(ping());
   }, [dispatch]);
-
-  console.log(job, '<<< JOB');
 
   return (
     <>
@@ -74,12 +68,4 @@ const Home = ({ job }) => {
   );
 };                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 
-Home.propTypes = {
-  job: PropTypes.object,
-};
-
-const mapStateToProps = createStructuredSelector({
-  job: selectJob,
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;
