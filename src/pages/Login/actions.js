@@ -5,6 +5,7 @@ export const setLogin = (dataUser) => ({
   dataUser,
 });
 
-export const getLogin = () => ({
+export const getLogin = (dataUser) => ({
   type: GET_LOGIN,
+  dataUser,
 });

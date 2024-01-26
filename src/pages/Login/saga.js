@@ -5,14 +5,14 @@ import { GET_LOGIN } from './constants';
 import { getLogin } from '@domain/api';
 import { setLogin } from './actions';
 
-function* doLogin() {
+function* doLogin({ dataUser }) {
   yield put(setLoading(true));
   try {
-    const response = yield call(getLogin);
-    yield put(setLogin(response.data));
-    console.log(response.data);
+    const response = yield call(getLogin(dataUser));
+    yield put(setLogin(response));
+    console.log(response, '<<< response login');
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
   yield put(setLoading(false));
 }

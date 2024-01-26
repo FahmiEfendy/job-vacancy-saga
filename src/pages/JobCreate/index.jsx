@@ -29,7 +29,7 @@ const JobCreate = () => {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ',
       requirements: ['JavaScript', 'React', 'Express.js', 'MySQL'],
       jobLocation: 'United States',
-      'employment Type': 'Full Time',
+      employmentType: 'Full Time',
       salary: 'Rp10.000.000',
     };
 

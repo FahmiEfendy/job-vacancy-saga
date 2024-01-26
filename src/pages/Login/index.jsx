@@ -1,9 +1,3 @@
-// data = {
-//   id: '',
-//  email:"",
-//  password:"",
-//  isEmployer:""
-// };
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
@@ -11,9 +5,17 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import classes from './style.module.scss';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
 
 
-export default function Login() {
+import classes from './style.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { getLogin } from './actions';
+import { selectLogin } from './selectors';
+
+const Login = ({ login }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -25,15 +27,16 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const dataUser = {
       email: user.email,
       password: user.password,
     };
-    // dispatch(login(dataUser));
+    dispatch(getLogin(dataUser));
     navigate('/');
   };
-
+  console.log(login, '<<< LOGIN');
   return (
     <>
       <div className={classes['login']}>
@@ -64,4 +67,14 @@ export default function Login() {
       </div>
     </>
   );
-}
+};
+
+Login.propTypes = {
+  login: PropTypes.object,
+};
+
+const mapStateToProps = createStructuredSelector({
+  login: selectLogin,
+});
+
+export default connect(mapStateToProps)(Login);
