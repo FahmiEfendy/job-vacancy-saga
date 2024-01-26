@@ -4,14 +4,12 @@ import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import classes from './style.module.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 
 
 import classes from './style.module.scss';
-import { useNavigate } from 'react-router-dom';
 import { getLogin } from './actions';
 import { selectLogin } from './selectors';
 
