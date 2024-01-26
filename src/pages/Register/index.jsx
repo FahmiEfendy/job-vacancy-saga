@@ -1,22 +1,10 @@
-// data = {
-//   id: '',
-//   fullName: '',
-//   email: '',
-//   password: '',
-//   isEmployer: '',
-// };
-import * as React from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useNavigate } from 'react-router-dom';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -30,8 +18,9 @@ import { register } from './actions';
 
 const defaultTheme = createTheme();
 
-export default function Register() {
+const Register = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     isEmployer: false,
   });
@@ -53,6 +42,8 @@ export default function Register() {
       isEmployer: user.isEmployer ? true : false,
     };
     dispatch(register(dataUser));
+
+    navigate('/login');
   };
 
   return (
@@ -123,4 +114,6 @@ export default function Register() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default Register;
