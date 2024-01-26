@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import { connect, useDispatch } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
 import { ping } from '@containers/App/actions';
 import classes from './style.module.scss';
@@ -23,10 +21,8 @@ const Home = ({ job, users }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getJobRequest());
+    dispatch(ping());
   }, [dispatch]);
-
-  console.log(job, '<<< JOB');
 
   return (
     <>
@@ -79,12 +75,4 @@ const Home = ({ job, users }) => {
   );
 };
 
-Home.propTypes = {
-  job: PropTypes.object,
-};
-
-const mapStateToProps = createStructuredSelector({
-  job: selectJob,
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;
