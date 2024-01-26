@@ -1,51 +1,60 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { connect, useDispatch } from 'react-redux';
 
+import { Box, Typography } from '@mui/material';
+
 import { createStructuredSelector } from 'reselect';
+import { selectLogin } from '@pages/Login/selectors';
+import GridJobs from '../../components/GridJobs';
 import { selectJobApplication } from './selectors';
 import { deleteJobApplicationRequest, getJobApplicationRequest } from './actions';
 
 import classes from './style.module.scss';
 
-const JobApplication = ({ jobApplication }) => {
+const JobApplication = ({ login, jobApplication }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getJobApplicationRequest());
-    // Hit This API To Get Job Applied By User
-    // dispatch(getJobApplicationRequest({ userId: '1' }));
-    // ===
-    // Hit This API To Get Job Created By Employer
-    // dispatch(getJobApplicationRequest({ employerId: '1' }));
-    // ===
+    if (login.isEmployer) {
+      // Hit This API To Get Job Created By Employer
+      dispatch(getJobApplicationRequest({ employerId: login.id }));
+    } else {
+      // Hit This API To Get Job Applied By User
+      dispatch(getJobApplicationRequest({ userId: login.id }));
+    }
     // Hit This API To Get Applied User on a Job
-    // dispatch(getJobApplicationRequest({ jobId: '544c877f-2545-43f0-8cf2-9e49c9929e49' }));
-  }, [dispatch]);
+    // dispatch(getJobApplicationRequest({ jobId: '5' }));
+  }, [dispatch, login.id, login.isEmployer]);
 
   const deleteApplicationHandler = () => {
     // Hit This API to Reject Employee (as Employer) or Cancel Apply Job (as Employee)
-    dispatch(deleteJobApplicationRequest('a183e5c4-0e23-47d6-a69b-ec0d189d52ac')); // id
+    dispatch(deleteJobApplicationRequest(jobApplication[0]?.id));
   };
 
-  console.log(jobApplication, '<<< JOB APPLICATION');
-
   return (
-    <>
-      <p>This is Application List Pages!</p>
-      <button type="button" onClick={deleteApplicationHandler}>
-        Click Me to Delete a Application
-      </button>
-    </>
+    <Box className={classes.container}>
+      <Typography variant="h5" align="center" className={classes.header}>
+        {login.isEmployer ? (
+          <FormattedMessage id="applicant_employer_header_text" />
+        ) : (
+          <FormattedMessage id="applicant_header_text" />
+        )}
+      </Typography>
+      <GridJobs datas={jobApplication.data} isApplication hideIcon onDelete={deleteApplicationHandler} />
+    </Box>
   );
 };
 
 JobApplication.propTypes = {
   jobApplication: PropTypes.object,
+  login: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   jobApplication: selectJobApplication,
+  login: selectLogin,
 });
 
 export default connect(mapStateToProps)(JobApplication);

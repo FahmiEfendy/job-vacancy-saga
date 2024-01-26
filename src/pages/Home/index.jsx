@@ -1,33 +1,35 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { connect, useDispatch } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
-import { ping } from '@containers/App/actions';
+import { getJobRequest } from './actions';
+import { selectJob } from './selectors';
+import GridJobs from '../../components/GridJobs';
+
 import classes from './style.module.scss';
 
-import GridJobs from '../../components/GridJobs';
-import { selectJob } from './selectors';
-import { getJobRequest } from './actions';
-
-// data = {
-//   id: '',
-//   companyName: '',
-//   jobTitle: '',
-//   jobLocation: '',
-//   employmentType: '',
-// };
-
-const Home = ({ job, users }) => {
+const Home = ({ job }) => {
   const dispatch = useDispatch();
 
+  const [input, setInput] = useState('');
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    dispatch(ping());
+    setData(dispatch(getJobRequest()));
   }, [dispatch]);
+
+  useEffect(() => {
+    const filtereData = job?.data?.filter((d) => d?.jobTitle?.toLowerCase().includes(input));
+
+    setData(filtereData);
+  }, [input, job.data]);
 
   return (
     <>
       <section className={classes['background-banner']}>
-        <div className={classes['container']}>
+        <div className={classes.container}>
           <div className={classes['hero-text']}>
             <h1>
               <FormattedMessage id="app_greeting" />
@@ -37,17 +39,17 @@ const Home = ({ job, users }) => {
             </p>
           </div>
           <div className={classes['hero-btn']}>
-            <a href="" className={classes['btn-primary']}>
+            <button type="button" className={classes['btn-primary']}>
               <FormattedMessage id="app_btn_hero_title" />
-            </a>
-            <a href="" className={classes['btn-secondary']}>
+            </button>
+            <a href="/" className={classes['btn-secondary']}>
               <FormattedMessage id="app_btn_hero_title2" />
             </a>
           </div>
         </div>
       </section>
       <section className={classes['job-list']}>
-        <div className={classes['container']}>
+        <div className={classes.container}>
           <div className={classes['list-header']}>
             <h2>
               <FormattedMessage id="app_job_title_header" />
@@ -56,23 +58,29 @@ const Home = ({ job, users }) => {
               <FormattedMessage id="app_job_desc_header" />
             </p>
           </div>
-
           {/* Search */}
           <div className={classes['search-job']}>
             <div className={classes['search-item']}>
-              <input type="text" />
-              <button>
+              <input type="text" onChange={(e) => setInput(e.target.value)} />
+              <button type="button">
                 <FormattedMessage id="app_btn_search_title" />
               </button>
             </div>
           </div>
-
           {/* List Job */}
-          <GridJobs />
+          <GridJobs datas={data} hideIcon />
         </div>
       </section>
     </>
   );
 };
 
-export default Home;
+Home.propTypes = {
+  job: PropTypes.object,
+};
+
+const mapStateToProps = createStructuredSelector({
+  job: selectJob,
+});
+
+export default connect(mapStateToProps)(Home);

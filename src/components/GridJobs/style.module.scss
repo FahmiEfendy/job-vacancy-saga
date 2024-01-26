@@ -1,79 +1,84 @@
 @import '@styles/base';
 
 .grid-wrapper {
-    .grid {
+  display: inline-block;
+  .grid {
+    gap: 30px;
+    .card {
+      color: var(--color-text-card);
+      background-color: var(--color-bg-card);
+      border: 3px solid var(--color-bg-card);
+      padding: 20px 15px;
+      border-radius: 15px;
+      transition: 0.3s all ease;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      // width: 220px;
+      @include directionY;
       gap: 30px;
-      .card {
-        color: var(--color-text-card);
-        background-color: var(--color-bg-card);
-        border: 3px solid var(--color-bg-card);
-        padding: 20px 15px;
-        border-radius: 15px;
-        transition: 0.3s all ease;
-        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        // width: 220px;
-        @include directionY;
-        gap: 30px;
-        .card-header {
-          @include directionX;
-          h3 {
+      .card-header {
+        @include directionX;
+        h3 {
+          font-size: 16px;
+          margin: 0;
+          @include apply-at-lg-size {
+            font-size: 26px;
+          }
+        }
+        small {
+          font-size: 11px;
+          @include apply-at-lg-size {
             font-size: 16px;
-            margin: 0;
+          }
+          span {
+            color: rgba(0, 0, 0, 0.4);
+          }
+        }
+      }
+      .card-body {
+        @include directionX;
+        justify-content: space-between;
+        font-size: 20px;
+        align-items: center;
+        .location_text {
+          margin-right: 2rem;
+        }
+        span {
+          @include directionX;
+          gap: 6px;
+          align-items: center;
+          color: var(--color-bg-btn);
+          .icon {
+            align-items: center;
+            font-size: 14px;
             @include apply-at-lg-size {
-              font-size: 26px;
+              font-size: 16px;
             }
           }
-          small {
+          p {
+            margin: 0;
             font-size: 11px;
             @include apply-at-lg-size {
-              font-size: 16px;
-            }
-            span {
-              color: rgba(0, 0, 0, 0.4);
-            }
-          }
-        }
-        .card-body {
-          @include directionX;
-          justify-content: space-between;
-          font-size: 20px;
-          align-items: center;
-          span {
-            @include directionX;
-            gap: 6px;
-            align-items: center;
-            color: var(--color-bg-btn);
-            .icon {
-              align-items: center;
               font-size: 14px;
-              @include apply-at-lg-size {
-                font-size: 16px;
-              }
-            }
-            p {
-              margin: 0;
-              font-size: 11px;
-              @include apply-at-lg-size {
-                font-size: 14px;
-              }
-            }
-          }
-          .btn-primary {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            @include btnPrimary;
-            font-size: 16px;
-            padding: 5px 20px;
-            .icon {
-              font-size: 16px;
             }
           }
         }
-      }
-      .card:hover {
-        border: 3px solid var(--color-bg-btn);
+        .btn-primary {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          @include btnPrimary;
+          font-size: 16px;
+          padding: 5px 20px;
+          .icon {
+            font-size: 16px;
+          }
+          background-color: red;
+        }
       }
     }
+    .card:hover {
+      border: 3px solid var(--color-bg-btn);
+    }
   }
+}

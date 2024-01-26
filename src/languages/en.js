@@ -13,6 +13,7 @@ export default {
   app_btn_hero_title: 'Get Started',
   app_btn_search_title: 'Search',
   app_btn_apply_title: 'Apply',
+  app_btn_delete_title: 'Delete',
   app_btn_hero_title2: 'Learn More',
   app_job_title_header: 'Explore The Latest Job Openings',
   app_job_desc_header:
@@ -23,4 +24,10 @@ export default {
   app_header_req: 'Minimum requirements',
   app_login_regis_label: 'Dont have an account? Klik ',
   app_login_regis_label_link: 'Here',
+  app_no_data: 'No data found!',
+
+  applicant_header_text: 'Applied Jobs',
+  applicant_employer_header_text: 'Created Jobs',
+  app_btn_cancel_title: 'Withdraw Applicant',
+  app_btn_delete_text: 'Delete Applicant',
 };
