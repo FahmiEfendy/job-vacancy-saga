@@ -40,6 +40,9 @@
           justify-content: space-between;
           font-size: 20px;
           align-items: center;
+          .location_text{
+            margin-right: 2rem
+          }
           span {
             @include directionX;
             gap: 6px;

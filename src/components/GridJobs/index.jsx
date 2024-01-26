@@ -1,18 +1,14 @@
-import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
+
+import WorkIcon from '@mui/icons-material/Work';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import { Box, Grid, Typography } from '@mui/material';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import classes from './style.module.scss';
 
-import { Box, Grid } from '@mui/material';
-
-// import LogoComp from '../../static/images/spotify.png';
-
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { FormattedMessage } from 'react-intl';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import WorkIcon from '@mui/icons-material/Work';
-
-const index = ({ datas, isApplication }) => {
+const index = ({ datas, isApplication, onHome }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate();
 
@@ -20,38 +16,46 @@ const index = ({ datas, isApplication }) => {
     navigate(`/job/${id}`);
   };
 
-  console.log(datas);
-
   return (
     <Box className={classes['grid-wrapper']}>
-      <Grid className={classes['grid']} container justifyContent="center" alignItems="center">
-        {datas.map((data, idx) => (
-          <Grid item key={idx} onClick={() => jobDetailHandler(isApplication ? data.detail.jobId : data.jobId)}>
-            <div className={classes['card']}>
-              <div className={classes['card-header']}>
-                {/* <img src={LogoComp} alt="" /> */}
-                <span>
-                  <h3>{isApplication ? data.detail.jobTitle : data.jobTitle}</h3>
-                  <small>{data.companyName}</small>
-                </span>
+      {datas?.length > 0 ? (
+        <Grid className={classes.grid} container justifyContent="center" alignItems="center">
+          {datas.map((data, idx) => (
+            <Grid item key={idx} onClick={() => jobDetailHandler(isApplication ? data.detail.jobId : data.jobId)}>
+              <div className={classes.card}>
+                <div className={classes['card-header']}>
+                  {/* <img src={LogoComp} alt="" /> */}
+                  <span>
+                    <h3>{isApplication ? data.detail.jobTitle : data.jobTitle}</h3>
+                    <small>{data.companyName}</small>
+                  </span>
+                </div>
+                <div className={classes['card-body']}>
+                  <span>
+                    <LocationOnIcon className={classes.icon} />
+                    <p className={classes.location_text}>
+                      {isApplication ? data.detail.jobLocation : data.jobLocation}
+                    </p>
+                  </span>
+                  <span>
+                    <WorkIcon className={classes.icon} />
+                    <p>{isApplication ? data.detail.employmentType : data.employmentType}</p>
+                  </span>
+                  {!onHome && (
+                    <button type="button" className={classes['btn-primary']}>
+                      <AddBoxIcon className={classes.icon} /> <FormattedMessage id="app_btn_apply_title" />
+                    </button>
+                  )}
+                </div>
               </div>
-              <div className={classes['card-body']}>
-                <span>
-                  <LocationOnIcon className={classes['icon']} />
-                  <p>{isApplication ? data.detail.jobLocation : data.jobLocation}</p>
-                </span>
-                <span>
-                  <WorkIcon className={classes['icon']} />{' '}
-                  <p>{isApplication ? data.detail.employmentType : data.employmentType}</p>
-                </span>
-                <button type="button" className={classes['btn-primary']}>
-                  <AddBoxIcon className={classes['icon']} /> <FormattedMessage id="app_btn_apply_title" />
-                </button>
-              </div>
-            </div>
-          </Grid>
-        ))}
-      </Grid>
+            </Grid>
+          ))}
+        </Grid>
+      ) : (
+        <Typography variant="h5" align="center">
+          <FormattedMessage id="app_no_data" />
+        </Typography>
+      )}
     </Box>
   );
 };

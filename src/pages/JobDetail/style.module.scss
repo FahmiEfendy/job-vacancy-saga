@@ -58,7 +58,7 @@
         }
         .btn-apply {
           padding: 5px 0;
-          button {
+          .button {
             display: flex;
             align-items: center;
             gap: 7px;
@@ -68,13 +68,17 @@
               font-size: 18px;
             }
           }
+          .button_delete {
+            @extend .button;
+            background-color: red;
+          }
         }
       }
       .job-body {
         font-size: 14px;
         color: var(--color-text-secondary);
         @include apply-at-md-size {
-        width: 300px;
+          width: 300px;
         }
         span {
           font-size: 20px;
