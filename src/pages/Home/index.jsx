@@ -19,7 +19,7 @@ import { getJobRequest } from './actions';
 //   employmentType: '',
 // };
 
-const Home = ({ job, isApplication }) => {
+const Home = ({ job, users, isApplication }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -3,22 +3,43 @@ import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import NightsStayIcon from '@mui/icons-material/NightsStay';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
 
 import { setLocale, setTheme } from '@containers/App/actions';
+import { selectLogin } from '@containers/Client/selectors';
+import { setLogin } from '@pages/Login/actions';
 
 import classes from './style.module.scss';
 
-const Navbar = ({ title, locale, theme }) => {
+const settings = ['Create Job', 'Logout'];
+
+const Navbar = ({ title, locale, theme, login }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [menuPosition, setMenuPosition] = useState(null);
   const open = Boolean(menuPosition);
+
+  const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
 
   const handleClick = (event) => {
     setMenuPosition(event.currentTarget);
@@ -43,6 +64,11 @@ const Navbar = ({ title, locale, theme }) => {
     navigate('/');
   };
 
+  const handleLogout = () => {
+    dispatch(setLogin(login));
+    navigate('/login');
+  };
+
   return (
     <div className={classes.headerWrapper} data-testid="navbar">
       <div className={classes.contentWrapper}>
@@ -52,14 +78,6 @@ const Navbar = ({ title, locale, theme }) => {
         </div>
 
         <div className={classes.toolbar}>
-          <div className={classes.btnLoginRegis}>
-            <button className={classes['btn-primary']}>
-              <FormattedMessage id="app_register_title" />
-            </button>
-            <button className={classes['btn-secondary']}>
-              <FormattedMessage id="app_login_title" />
-            </button>
-          </div>
           <div className={classes.theme} onClick={handleTheme} data-testid="toggleTheme">
             {theme === 'light' ? <NightsStayIcon /> : <LightModeIcon />}
           </div>
@@ -68,6 +86,46 @@ const Navbar = ({ title, locale, theme }) => {
             <div className={classes.lang}>{locale}</div>
             <ExpandMoreIcon />
           </div>
+          {login !== null ? (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogout : null}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          ) : (
+            <div className={classes.btnLoginRegis}>
+              <button className={classes['btn-primary']} onClick={() => navigate('/register')}>
+                <FormattedMessage id="app_register_title" />
+              </button>
+              <button className={classes['btn-secondary']} onClick={() => navigate('/login')}>
+                <FormattedMessage id="app_login_title" />
+              </button>
+            </div>
+          )}
         </div>
 
         <Menu open={open} anchorEl={menuPosition} onClose={handleClose}>
@@ -97,6 +155,11 @@ Navbar.propTypes = {
   title: PropTypes.string,
   locale: PropTypes.string.isRequired,
   theme: PropTypes.string,
+  login: PropTypes.object,
 };
 
-export default Navbar;
+const mapStateToProps = createStructuredSelector({
+  login: selectLogin,
+});
+
+export default connect(mapStateToProps)(Navbar);

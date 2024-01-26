@@ -184,5 +184,49 @@
         "id": "35fb"
       }
     }
+  ],
+  "users": [
+    {
+      "id": "db769e04-2fe2-4f9a-b1a9-58824be06266",
+      "fullName": "Phinconner",
+      "email": "phincon@mail.com",
+      "password": "phincon123",
+      "isEmployer": true
+    },
+    {
+      "id": "17e428e7-9ec5-40f8-ba48-621f989cb696",
+      "fullname": "tes",
+      "email": "tes",
+      "password": "tes",
+      "isEmployer": true
+    },
+    {
+      "id": "9fe7aeb1-b079-45b3-abdd-56ab15ea4c82",
+      "fullname": "tes",
+      "email": "tes",
+      "password": "tes",
+      "isEmployer": true
+    },
+    {
+      "id": "da30a564-1726-416e-ba00-1a8302cea0f7",
+      "fullname": "tes123",
+      "email": "tes123",
+      "password": "tes123",
+      "isEmployer": false
+    },
+    {
+      "id": "6377d16e-c9a4-4cdb-b3c0-826da95b9081",
+      "fullname": "iqbal",
+      "email": "iqbal",
+      "password": "iqbal",
+      "isEmployer": false
+    },
+    {
+      "id": "d97b76a1-9d25-4109-89d8-4526fb0c4af4",
+      "fullname": "iqbal123",
+      "email": "iqbal123",
+      "password": "iqbal123",
+      "isEmployer": false
+    }
   ]
 }
