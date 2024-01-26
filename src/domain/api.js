@@ -52,4 +52,7 @@ export const deleteJobApplication = (id) => callAPI(`${urls.deleteJobApplication
 export const register = (dataUser) => {
   return callAPI(urls.register, 'POST', {}, {}, dataUser);
 };
-export const getLogin = () => callAPI(urls.login, 'GET');
+export const getLogin = (dataUser) => {
+  console.log(dataUser);
+  return callAPI(urls.login, 'GET', {}, dataUser);
+};

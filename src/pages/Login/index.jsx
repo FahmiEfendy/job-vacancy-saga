@@ -1,36 +1,25 @@
-// data = {
-//   id: '',
-//  email:"",
-//  password:"",
-//  isEmployer:""
-// };
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { createStructuredSelector } from 'reselect';
 
 // import { login } from './actions';
 import classes from './style.module.scss';
 import { useNavigate } from 'react-router-dom';
-// import { encryptPayload } from '@utils/encryptPayload';
-// import { getLogin } from './actions';
+import { getLogin } from './actions';
+import { selectLogin } from './selectors';
 
 const defaultTheme = createTheme();
-
-export default function Login() {
+const Login = ({ login }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({});
@@ -42,15 +31,16 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const dataUser = {
       email: user.email,
       password: user.password,
     };
-    // dispatch(login(dataUser));
+    dispatch(getLogin(dataUser));
     navigate('/');
   };
-
+  console.log(login, '<<< LOGIN');
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs" className={classes.container}>
@@ -110,4 +100,14 @@ export default function Login() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+Login.propTypes = {
+  login: PropTypes.object,
+};
+
+const mapStateToProps = createStructuredSelector({
+  login: selectLogin,
+});
+
+export default connect(mapStateToProps)(Login);
