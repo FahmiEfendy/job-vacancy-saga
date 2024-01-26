@@ -5,6 +5,7 @@
   box-shadow: 0 0.25rem 0.75rem rgba(25, 49, 83, 0.2) !important;
   position: sticky;
   top: 0;
+  z-index: 99;
   .contentWrapper {
     @include directionX;
 
@@ -31,17 +32,49 @@
 
     .toolbar {
       @include directionX;
+      .btnLoginRegis {
+        @include directionX;
+        gap: 20px;
+        .btn-primary {
+          @include btnPrimary;
+          font-size: 16px;
+          padding: 5px 10px;          
+          font-weight: 700;
+          @include apply-at-lg-size {
+            padding: 5px 20px;
+            font-size: 16px;
+          }
+        }
+        .btn-secondary {
+          @include btnSecondary;
+          font-size: 16px;
+          font-weight: 700;
+          padding: 5px 10px;
+          @include apply-at-lg-size {
+            padding: 5px 20px;
+            font-size: 16px;
+          }
+        }
+      }
       .theme {
         @include directionX;
         align-items: center;
         margin-right: 0.5rem;
+        margin-left: 1rem;
         cursor: pointer;
+        display: none;
+        @include apply-at-md-size {
+          display: flex;
+        }
       }
       .toggle {
         @include directionX;
         align-items: center;
         cursor: pointer;
-
+        display: none;
+        @include apply-at-md-size {
+          display: flex;
+        }
         .avatar {
           width: 1.2rem;
           height: 1.2rem;

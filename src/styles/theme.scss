@@ -4,12 +4,29 @@
   --color-bg: #fff;
   --color-bg-secondary: #e8eef1;
   --color-text: #001a41;
+  --color-text-secondary: rgba(0, 26, 65, 0.6);
   --color-button: #ed0226;
+  --color-text-btn: #f4eee0;
+  --color-bg-btn: #ff8906;
+  --color-text-btn-sec: #001a41;
+  --color-bg-btn-sec: #001a41;
+  --color-bg-card: #fff;
+  --color-text-card: #001a41;
+
+
 }
 
 @mixin dark-theme {
-  --color-bg: #4f4557;
-  --color-bg-secondary: #393646;
+  --color-bg: #002255;
+  --color-bg-secondary: #001a41;
   --color-text: #f4eee0;
+  --color-text-secondary: rgba(244, 238, 224, 0.6);
   --color-button: #ed0226;
+  --color-text-btn: #f4eee0;
+  --color-bg-btn: #ff8906;
+  --color-text-btn-sec: #f4eee0;
+  --color-bg-btn-sec: #f4eee0;
+  --color-bg-card: #e8eef1;
+  --color-text-card: #001a41;
+
 }
