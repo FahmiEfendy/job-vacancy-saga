@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { createStructuredSelector } from 'reselect';
 
-
 import classes from './style.module.scss';
 import { getLogin } from './actions';
 import { selectLogin } from './selectors';
@@ -45,7 +44,7 @@ const Login = ({ login }) => {
           <div className={classes['card']}>
             <div className={classes['card-item']}>
               <div className={classes['card-head']}>
-                <h2 className={classes["header-title"]}>
+                <h2 className={classes['header-title']}>
                   <FormattedMessage id="app_login_title" />
                 </h2>
               </div>
@@ -59,9 +58,10 @@ const Login = ({ login }) => {
                   <input type="password" name="password" onChange={(e) => handleChange(e.target.value, 'password')} />
                 </div>
               </div>
-              <button type="submit" onSubmit={handleSubmit}>
+              <button type="submit" onClick={handleSubmit}>
                 <FormattedMessage id="app_login_title" />
-              </button><br />
+              </button>
+              <br />
             </div>
           </div>
         </div>

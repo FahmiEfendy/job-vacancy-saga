@@ -69,6 +69,49 @@ const Navbar = ({ title, locale, theme, login }) => {
     navigate('/login');
   };
 
+  const sideBarLogin = (
+    <Box sx={{ flexGrow: 0 }}>
+      <Tooltip title="Open settings">
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+        </IconButton>
+      </Tooltip>
+      <Menu
+        sx={{ mt: '45px' }}
+        id="menu-appbar"
+        anchorEl={anchorElUser}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        open={Boolean(anchorElUser)}
+        onClose={handleCloseUserMenu}
+      >
+        {settings.map((setting) => (
+          <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogout : null}>
+            <Typography textAlign="center">{setting}</Typography>
+          </MenuItem>
+        ))}
+      </Menu>
+    </Box>
+  );
+
+  const sideBarNotLogin = (
+    <div className={classes.btnLoginRegis}>
+      <button className={classes['btn-primary']} onClick={() => navigate('/register')}>
+        <FormattedMessage id="app_register_title" />
+      </button>
+      <button className={classes['btn-secondary']} onClick={() => navigate('/login')}>
+        <FormattedMessage id="app_login_title" />
+      </button>
+    </div>
+  );
+
   return (
     <div className={classes.headerWrapper} data-testid="navbar">
       <div className={classes.contentWrapper}>
@@ -86,46 +129,7 @@ const Navbar = ({ title, locale, theme, login }) => {
             <div className={classes.lang}>{locale}</div>
             <ExpandMoreIcon />
           </div>
-          {login !== null ? (
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={setting === 'Logout' ? handleLogout : null}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
-            </Box>
-          ) : (
-            <div className={classes.btnLoginRegis}>
-              <button className={classes['btn-primary']} onClick={() => navigate('/register')}>
-                <FormattedMessage id="app_register_title" />
-              </button>
-              <button className={classes['btn-secondary']} onClick={() => navigate('/login')}>
-                <FormattedMessage id="app_login_title" />
-              </button>
-            </div>
-          )}
+          {login ? sideBarNotLogin : sideBarLogin}
         </div>
 
         <Menu open={open} anchorEl={menuPosition} onClose={handleClose}>

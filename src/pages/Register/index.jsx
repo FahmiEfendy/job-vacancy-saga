@@ -16,7 +16,6 @@ import { register } from './actions';
 
 import classes from './style.module.scss';
 
-
 export default function Register() {
   const dispatch = useDispatch();
   const [user, setUser] = useState({
@@ -74,7 +73,7 @@ export default function Register() {
                 label="I am an employer!"
                 name="isEmployer"
               />
-              <button type="submit" onSubmit={handleSubmit}>
+              <button type="submit" onClick={handleSubmit}>
                 <FormattedMessage id="app_register_title" />
               </button>
               <div className={classes['regis']}>
