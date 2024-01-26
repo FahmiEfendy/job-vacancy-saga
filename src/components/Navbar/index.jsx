@@ -53,10 +53,10 @@ const Navbar = ({ title, locale, theme }) => {
 
         <div className={classes.toolbar}>
           <div className={classes.btnLoginRegis}>
-            <button className={classes['btn-primary']}>
+            <button className={classes['btn-primary']} onClick={() => navigate('/register')}>
               <FormattedMessage id="app_register_title" />
             </button>
-            <button className={classes['btn-secondary']}>
+            <button className={classes['btn-secondary']} onClick={() => navigate('/login')}>
               <FormattedMessage id="app_login_title" />
             </button>
           </div>

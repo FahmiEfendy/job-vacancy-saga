@@ -36,10 +36,13 @@ const JobDetail = () => {
               <p>
                 PT Multi Hidrachrome Industri - <span>Jakarta</span>
               </p>
-              <small><WorkIcon className={classes["icon"]} />Magang</small>
+              <small>
+                <WorkIcon className={classes['icon']} />
+                Magang
+              </small>
             </div>
-            <div className={classes["job-body"]}>
-            <span>Tanggung Jawab</span>
+            <div className={classes['job-body']}>
+              <span>Tanggung Jawab</span>
               <ul>
                 <li>Membuat Laporan Pembukuan</li>
                 <li>Menginput Data</li>
@@ -57,8 +60,10 @@ const JobDetail = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
+
+export default JobDetail;
 // const JobDetail = ({ jobDetail }) => {
 //   const dispatch = useDispatch();
 

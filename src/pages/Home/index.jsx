@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect';
 import { ping } from '@containers/App/actions';
 import classes from './style.module.scss';
 
-import GridJobs from "../../components/GridJobs"
+import GridJobs from '../../components/GridJobs';
 import { selectJob } from './selectors';
 import { getJobRequest } from './actions';
 
@@ -19,7 +19,7 @@ import { getJobRequest } from './actions';
 //   employmentType: '',
 // };
 
-const Home = ({ job }) => {
+const Home = ({ job, users }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Home = ({ job }) => {
               <FormattedMessage id="app_btn_hero_title" />
             </a>
             <a href="" className={classes['btn-secondary']}>
-            <FormattedMessage id="app_btn_hero_title2" />
+              <FormattedMessage id="app_btn_hero_title2" />
             </a>
           </div>
         </div>
@@ -53,8 +53,11 @@ const Home = ({ job }) => {
       <section className={classes['job-list']}>
         <div className={classes['container']}>
           <div className={classes['list-header']}>
-            <h2><FormattedMessage id="app_job_title_header" /></h2>
-            <p><FormattedMessage id='app_job_desc_header' />
+            <h2>
+              <FormattedMessage id="app_job_title_header" />
+            </h2>
+            <p>
+              <FormattedMessage id="app_job_desc_header" />
             </p>
           </div>
 
@@ -62,7 +65,9 @@ const Home = ({ job }) => {
           <div className={classes['search-job']}>
             <div className={classes['search-item']}>
               <input type="text" />
-              <button><FormattedMessage id="app_btn_search_title" /></button>
+              <button>
+                <FormattedMessage id="app_btn_search_title" />
+              </button>
             </div>
           </div>
 
@@ -72,7 +77,7 @@ const Home = ({ job }) => {
       </section>
     </>
   );
-};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+};
 
 Home.propTypes = {
   job: PropTypes.object,
