@@ -8,9 +8,12 @@ import { Box, Grid } from '@mui/material';
 // import LogoComp from '../../static/images/spotify.png';
 
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { FormattedMessage } from 'react-intl';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import WorkIcon from '@mui/icons-material/Work';
 
 const index = ({ datas, isApplication }) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate();
 
   const jobDetailHandler = (id) => {
@@ -41,6 +44,9 @@ const index = ({ datas, isApplication }) => {
                   <WorkIcon className={classes['icon']} />{' '}
                   <p>{isApplication ? data.detail.employmentType : data.employmentType}</p>
                 </span>
+                <button type="button" className={classes['btn-primary']}>
+                  <AddBoxIcon className={classes['icon']} /> <FormattedMessage id="app_btn_apply_title" />
+                </button>
               </div>
             </div>
           </Grid>

@@ -13,16 +13,11 @@
         transition: 0.3s all ease;
         box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
         cursor: pointer;
+        // width: 220px;
         @include directionY;
         gap: 30px;
         .card-header {
           @include directionX;
-          img {
-            width: 60px;
-            @include apply-at-lg-size {
-              width: 80px;
-            }
-          }
           h3 {
             font-size: 16px;
             margin: 0;
@@ -31,9 +26,12 @@
             }
           }
           small {
-            font-size: 14px;
+            font-size: 11px;
             @include apply-at-lg-size {
               font-size: 16px;
+            }
+            span {
+              color: rgba(0, 0, 0, 0.4);
             }
           }
         }
@@ -46,19 +44,31 @@
             @include directionX;
             gap: 6px;
             align-items: center;
+            color: var(--color-bg-btn);
             .icon {
               align-items: center;
               font-size: 14px;
               @include apply-at-lg-size {
-                font-size: 26px;
+                font-size: 16px;
               }
             }
             p {
               margin: 0;
               font-size: 11px;
               @include apply-at-lg-size {
-                font-size: 20px;
+                font-size: 14px;
               }
+            }
+          }
+          .btn-primary {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            @include btnPrimary;
+            font-size: 16px;
+            padding: 5px 20px;
+            .icon {
+              font-size: 16px;
             }
           }
         }

@@ -1,22 +1,14 @@
 import { v4 as uuidv4 } from 'uuid';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import { useNavigate } from 'react-router-dom';
 import Checkbox from '@mui/material/Checkbox';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
-// import { encryptPayload } from '@utils/encryptPayload';
-import { useDispatch } from 'react-redux';
-// import { Input } from '@mui/joy/Input';
 
-import classes from './style.module.scss';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import { register } from './actions';
 
-const defaultTheme = createTheme();
+import classes from './style.module.scss';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -47,58 +39,29 @@ const Register = () => {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" className={classes.container}>
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '1rem',
-          }}
-        >
-          <Typography component="h1" variant="h5" className={classes.title}>
-            Register
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="fullname"
-              label="Full Name"
-              name="fullname"
-              //   autoComplete="fullname"
-              autoFocus
-              onChange={(e) => handleChange(e.target.value, 'fullname')}
-              variant="filled"
-            />
-            {/* <Input placeholder="Type in here…" variant="outlined" /> */}
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              // autoComplete="email"
-              autoFocus
-              onChange={(e) => handleChange(e.target.value, 'email')}
-              variant="filled"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              // autoComplete="current-password"
-              onChange={(e) => handleChange(e.target.value, 'password')}
-              variant="filled"
-            />
+    <div className={classes['register']}>
+      <div className={classes['container']}>
+        <div className={classes['card']}>
+          <div className={classes['card-item']}>
+            <div className={classes['card-head']}>
+              <h2>
+                <FormattedMessage id="app_register_title" />
+              </h2>
+            </div>
+            <div className={classes['input-form']}>
+              <div className={classes['input-item']}>
+                <label>Full Name</label>
+                <input type="text" name="fullname" onChange={(e) => handleChange(e.target.value, 'fullname')} />
+              </div>
+              <div className={classes['input-item']}>
+                <label>Email</label>
+                <input type="email" name="email" onChange={(e) => handleChange(e.target.value, 'email')} />
+              </div>
+              <div className={classes['input-item']}>
+                <label>Password</label>
+                <input type="password" name="password" onChange={(e) => handleChange(e.target.value, 'password')} />
+              </div>
+            </div>
             <FormControlLabel
               control={
                 <Checkbox checked={user.isEmployer} onChange={(e) => handleChange(e.target.value, 'isEmployer')} />
@@ -106,13 +69,21 @@ const Register = () => {
               label="I am an employer!"
               name="isEmployer"
             />
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} className={classes.button}>
-              Register
-            </Button>
-          </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+            <button type="submit" onSubmit={handleSubmit}>
+              <FormattedMessage id="app_register_title" />
+            </button>
+            <div className={classes['regis']}>
+              <p>
+                <FormattedMessage id="app_login_regis_label" />
+                <a href="/register">
+                  <FormattedMessage id="app_login_regis_label_link" />
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import { connect, useDispatch } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 
 import { ping } from '@containers/App/actions';
@@ -23,10 +23,8 @@ const Home = ({ job, users, isApplication }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getJobRequest());
+    dispatch(ping());
   }, [dispatch]);
-
-  console.log(job, '<<< JOB');
 
   return (
     <>
