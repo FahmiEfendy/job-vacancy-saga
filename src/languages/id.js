@@ -25,4 +25,9 @@ export default {
   app_login_regis_label: 'Tidak punya akun? Klik ',
   app_login_regis_label_link: 'Disini',
   app_no_data: 'Tidak ada data ditemukan!',
+
+  applicant_header_text: 'Pekerjaan Terdaftar',
+  applicant_employer_header_text: 'Pekerjaan Yang Telah Dibuat',
+  app_btn_cancel_title: 'Batal Lamaran',
+  app_btn_delete_text: 'Hapus Lamaran',
 };

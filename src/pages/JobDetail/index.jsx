@@ -36,6 +36,7 @@ const JobDetail = ({ jobDetail, login }) => {
       jobId,
       userId: login.id,
       employerId: jobDetail?.data[0]?.employerId,
+      detail: jobDetail?.data[0],
       // coverLetter: 'This is Cover Letter Example',
     };
 

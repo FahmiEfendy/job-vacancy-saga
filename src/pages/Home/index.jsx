@@ -21,7 +21,7 @@ const Home = ({ job }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    const filtereData = job.data.filter((d) => d.jobTitle.toLowerCase().includes(input));
+    const filtereData = job?.data?.filter((d) => d?.jobTitle?.toLowerCase().includes(input));
 
     setData(filtereData);
   }, [input, job.data]);
@@ -68,7 +68,7 @@ const Home = ({ job }) => {
             </div>
           </div>
           {/* List Job */}
-          <GridJobs datas={data} onHome />
+          <GridJobs datas={data} hideIcon />
         </div>
       </section>
     </>

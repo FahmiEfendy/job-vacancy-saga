@@ -1,14 +1,18 @@
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 
 import WorkIcon from '@mui/icons-material/Work';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { selectLogin } from '@pages/Login/selectors';
 import { Box, Grid, Typography } from '@mui/material';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import classes from './style.module.scss';
 
-const index = ({ datas, isApplication, onHome }) => {
+const GridJobs = ({ login, datas, isApplication, hideIcon, onDelete = false }) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const navigate = useNavigate();
 
@@ -41,9 +45,19 @@ const index = ({ datas, isApplication, onHome }) => {
                     <WorkIcon className={classes.icon} />
                     <p>{isApplication ? data.detail.employmentType : data.employmentType}</p>
                   </span>
-                  {!onHome && (
+                  {!hideIcon && (
                     <button type="button" className={classes['btn-primary']}>
                       <AddBoxIcon className={classes.icon} /> <FormattedMessage id="app_btn_apply_title" />
+                    </button>
+                  )}
+                  {onDelete && (
+                    <button type="button" className={classes['btn-primary']} onClick={onDelete}>
+                      <AddBoxIcon className={classes.icon} />
+                      {login.isEmployer ? (
+                        <FormattedMessage id="app_btn_delete_text" />
+                      ) : (
+                        <FormattedMessage id="app_btn_cancel_title" />
+                      )}
                     </button>
                   )}
                 </div>
@@ -60,4 +74,16 @@ const index = ({ datas, isApplication, onHome }) => {
   );
 };
 
-export default index;
+GridJobs.propTypes = {
+  login: PropTypes.object,
+  datas: PropTypes.array,
+  isApplication: PropTypes.bool,
+  hideIcon: PropTypes.bool,
+  onDelete: PropTypes.any,
+};
+
+const mapStateToProps = createStructuredSelector({
+  login: selectLogin,
+});
+
+export default connect(mapStateToProps)(GridJobs);

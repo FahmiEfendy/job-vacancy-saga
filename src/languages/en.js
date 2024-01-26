@@ -25,4 +25,9 @@ export default {
   app_login_regis_label: 'Dont have an account? Klik ',
   app_login_regis_label_link: 'Here',
   app_no_data: 'No data found!',
+
+  applicant_header_text: 'Applied Jobs',
+  applicant_employer_header_text: 'Created Jobs',
+  app_btn_cancel_title: 'Withdraw Applicant',
+  app_btn_delete_text: 'Delete Applicant',
 };
