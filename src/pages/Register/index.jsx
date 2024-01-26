@@ -1,11 +1,12 @@
-import { v4 as uuidv4 } from 'uuid';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import { useNavigate } from 'react-router-dom';
-import Checkbox from '@mui/material/Checkbox';
-
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import Checkbox from '@mui/material/Checkbox';
+import { useNavigate } from 'react-router-dom';
+import FormControlLabel from '@mui/material/FormControlLabel';
+
 import { register } from './actions';
 
 import classes from './style.module.scss';
@@ -13,6 +14,7 @@ import classes from './style.module.scss';
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [user, setUser] = useState({
     isEmployer: false,
   });
@@ -31,7 +33,7 @@ const Register = () => {
       fullname: user.fullname,
       email: user.email,
       password: user.password,
-      isEmployer: user.isEmployer ? true : false,
+      isEmployer: user.isEmployer,
     };
     dispatch(register(dataUser));
 
@@ -39,9 +41,9 @@ const Register = () => {
   };
 
   return (
-    <div className={classes['register']}>
-      <div className={classes['container']}>
-        <div className={classes['card']}>
+    <div className={classes.register}>
+      <div className={classes.container}>
+        <div className={classes.card}>
           <div className={classes['card-item']}>
             <div className={classes['card-head']}>
               <h2>
@@ -69,10 +71,10 @@ const Register = () => {
               label="I am an employer!"
               name="isEmployer"
             />
-            <button type="submit" onSubmit={handleSubmit}>
+            <button type="submit" onClick={handleSubmit}>
               <FormattedMessage id="app_register_title" />
             </button>
-            <div className={classes['regis']}>
+            <div className={classes.regis}>
               <p>
                 <FormattedMessage id="app_login_regis_label" />
                 <a href="/register">

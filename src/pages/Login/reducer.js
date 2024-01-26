@@ -12,7 +12,6 @@ const loginReducer = (state = initialState, action) =>
   produce(state, (draft) => {
     switch (action.type) {
       case SET_LOGIN:
-        console.log(action, '<<<< REDUCER');
         draft.login = action.dataUser;
         break;
     }
