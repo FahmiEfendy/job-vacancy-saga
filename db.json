@@ -1,382 +1,83 @@
 {
+  "users": [
+    {
+      "id": "69205136-9f3d-4ed5-902f-6ec0b12530b0",
+      "fullname": "employer1",
+      "email": "employer1@gmail.com",
+      "password": "employer",
+      "isEmployer": true
+    },
+    {
+      "id": "29611f04-3e52-4cea-8cf3-74f5ed71c126",
+      "fullname": "applicant1",
+      "email": "applicant1@gmail.com",
+      "password": "applicant",
+      "isEmployer": false
+    },
+    {
+      "id": "61603a54-c58f-42d6-9179-6de4716f20be",
+      "fullname": "employer2",
+      "email": "employer2@gmail.com",
+      "password": "employer",
+      "isEmployer": true
+    }
+  ],
   "job": [
     {
-      "jobId": "1",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": "JavaScript, React, Express.js, MySQL",
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "jobId": "2",
-      "employerId": "1",
-      "companyName": "Google",
-      "jobTitle": "Front End Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": "HTML, CSS, JavaScript, TypeScript",
-      "jobLocation": "Indonesia",
-      "employmentType": "Part Time",
-      "salary": "Rp1.300.000"
-    },
-    {
-      "jobId": "3",
-      "employerId": "2",
-      "companyName": "Amazon",
-      "jobTitle": "Cloud Engineer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
-      "requirements": "AWS, Python, Docker, Kubernetes",
-      "jobLocation": "United Kingdom",
-      "employmentType": "Full Time",
-      "salary": "Rp15.000.000",
-      "id": "af25"
-    },
-    {
-      "jobId": "4",
-      "employerId": "2",
-      "companyName": "Microsoft",
+      "id": "6b3d5366-e334-4d31-9d5b-62d0747545d3",
+      "jobId": "6b3d5366-e334-4d31-9d5b-62d0747545d3",
+      "employerId": "61603a54-c58f-42d6-9179-6de4716f20be",
+      "companyName": "CodeCrafters Ltd.",
       "jobTitle": "Data Scientist",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
-      "requirements": "Python, R, Machine Learning, SQL",
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp12.500.000",
-      "id": "2820"
+      "jobDescription": "CodeCrafters is seeking a talented Data Scientist to work on cutting-edge projects in data analysis and machine learning.",
+      "requirements": "Master's degree in Data Science or related field, proficiency in Python and machine learning libraries.",
+      "jobLocation": "New York, NY",
+      "employmentType": "Contact",
+      "salary": "$90 - $110 per hour"
     },
     {
-      "jobId": "5",
-      "employerId": "3",
-      "companyName": "Tesla",
-      "jobTitle": "Electrical Engineer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
-      "requirements": "Electrical Engineering, Circuit Design, MATLAB, Power Systems",
-      "jobLocation": "Germany",
-      "employmentType": "Full Time",
-      "salary": "Rp14.000.000",
-      "id": "35fb"
+      "id": "a8ccce15-e8a2-4dd8-bdf4-8e59ddb9497e",
+      "jobId": "a8ccce15-e8a2-4dd8-bdf4-8e59ddb9497e",
+      "employerId": "61603a54-c58f-42d6-9179-6de4716f20be",
+      "companyName": "233",
+      "jobTitle": "2323",
+      "jobDescription": "232323",
+      "requirements": "2323",
+      "jobLocation": "2323",
+      "employmentType": "233",
+      "salary": "2323"
     },
     {
-      "jobId": "544c877f-2545-43f0-8cf2-9e49c9929e49",
-      "employerId": "3",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": "JavaScript, React, Express.js,MySQL",
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "c499",
-      "jobId": "16372144-b644-4d38-abe7-75247aa336c7",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "66c4",
-      "jobId": "2c09fdcd-327e-417e-8b5e-7c71a6fc4fb6",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "191e",
-      "jobId": "ed3407dd-298c-4dc7-ac00-57f305317a25",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "b667",
-      "jobId": "f476d54f-c959-4ed9-acf5-dee3c57f59bf",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "c113",
-      "jobId": "4236137c-e7b4-4d39-bc1c-6831f32065d6",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "88a2",
-      "jobId": "4d04a319-9163-440b-8524-636ab6e8e851",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "cbb3",
-      "jobId": "ffa7f814-7439-49bd-8c09-e4a7ace953ca",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "4927",
-      "jobId": "196a25f2-ee4f-46b1-80db-7402e19bef85",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "63fc",
-      "jobId": "117265df-0599-44b1-94c9-c382de95bcd5",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "a3ab",
-      "jobId": "b99d365b-75b5-4cba-a278-fd893ddd294b",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
-    },
-    {
-      "id": "b4d1",
-      "jobId": "d3d028f7-ad6b-4d0d-9c4a-6872a9e6fd47",
-      "employerId": "1",
-      "companyName": "Facebook",
-      "jobTitle": "Full Stack Developer",
-      "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-      "requirements": [
-        "JavaScript",
-        "React",
-        "Express.js",
-        "MySQL"
-      ],
-      "jobLocation": "United States",
-      "employmentType": "Full Time",
-      "salary": "Rp10.000.000"
+      "id": "4f6b9228-b7f1-48bb-95e1-a77d6e5a41d3",
+      "jobId": "4f6b9228-b7f1-48bb-95e1-a77d6e5a41d3",
+      "employerId": "61603a54-c58f-42d6-9179-6de4716f20be",
+      "companyName": "23",
+      "jobTitle": "2323",
+      "jobDescription": "2323",
+      "requirements": "3232",
+      "jobLocation": "2323",
+      "employmentType": "2323",
+      "salary": "2332"
     }
   ],
   "application": [
     {
-      "id": "7c39d2e9-f263-4a2e-bf30-ca39bc0f4804",
-      "jobId": "1",
-      "userId": "2",
-      "employerId": "3",
-      "coverLetter": "This is Cover Letter Example",
+      "id": "154036e2-4e3c-41cc-bbe2-f9d3afb193fc",
+      "jobId": "6b3d5366-e334-4d31-9d5b-62d0747545d3",
+      "userId": "29611f04-3e52-4cea-8cf3-74f5ed71c126",
+      "employerId": "61603a54-c58f-42d6-9179-6de4716f20be",
       "detail": {
-        "jobId": "1",
-        "employerId": "1",
-        "companyName": "Facebook",
-        "jobTitle": "Full Stack Developer",
-        "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-        "requirements": "JavaScript, React, Express.js, MySQL",
-        "jobLocation": "United States",
-        "employmentType": "Full Time",
-        "salary": "Rp10.000.000",
-        "id": "64ba"
+        "id": "6b3d5366-e334-4d31-9d5b-62d0747545d3",
+        "jobId": "6b3d5366-e334-4d31-9d5b-62d0747545d3",
+        "employerId": "61603a54-c58f-42d6-9179-6de4716f20be",
+        "companyName": "CodeCrafters Ltd.",
+        "jobTitle": "Data Scientist",
+        "jobDescription": "CodeCrafters is seeking a talented Data Scientist to work on cutting-edge projects in data analysis and machine learning.",
+        "requirements": "Master's degree in Data Science or related field, proficiency in Python and machine learning libraries.",
+        "jobLocation": "New York, NY",
+        "employmentType": "Contact",
+        "salary": "$90 - $110 per hour"
       }
-    },
-    {
-      "id": "dab79261-94e0-4161-aa5f-dc92f2e4e524",
-      "jobId": "1",
-      "userId": "2",
-      "employerId": "3",
-      "coverLetter": "This is Cover Letter Example",
-      "detail": {
-        "jobId": "1",
-        "employerId": "1",
-        "companyName": "Facebook",
-        "jobTitle": "Full Stack Developer",
-        "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.      ",
-        "requirements": "JavaScript, React, Express.js, MySQL",
-        "jobLocation": "United States",
-        "employmentType": "Full Time",
-        "salary": "Rp10.000.000",
-        "id": "64ba"
-      }
-    },
-    {
-      "id": "d0bf97ee-490f-4940-8955-ae0a9cf37d08",
-      "jobId": "5",
-      "userId": "2",
-      "employerId": "3",
-      "coverLetter": "This is Cover Letter Example",
-      "detail": {
-        "jobId": "5",
-        "employerId": "3",
-        "companyName": "Tesla",
-        "jobTitle": "Electrical Engineer",
-        "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
-        "requirements": "Electrical Engineering, Circuit Design, MATLAB, Power Systems",
-        "jobLocation": "Germany",
-        "employmentType": "Full Time",
-        "salary": "Rp14.000.000",
-        "id": "35fb"
-      }
-    },
-    {
-      "id": "9d6b86b5-a4d6-44b4-8d7a-af3be73b50c9",
-      "jobId": "5",
-      "userId": "2",
-      "employerId": "3",
-      "coverLetter": "This is Cover Letter Example",
-      "detail": {
-        "jobId": "5",
-        "employerId": "3",
-        "companyName": "Tesla",
-        "jobTitle": "Electrical Engineer",
-        "jobDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id orci eget leo tincidunt commodo vel sed lorem. Donec cursus.",
-        "requirements": "Electrical Engineering, Circuit Design, MATLAB, Power Systems",
-        "jobLocation": "Germany",
-        "employmentType": "Full Time",
-        "salary": "Rp14.000.000",
-        "id": "35fb"
-      }
-    }
-  ],
-  "users": [
-    {
-      "id": "db769e04-2fe2-4f9a-b1a9-58824be06266",
-      "fullName": "Phinconner",
-      "email": "phincon@mail.com",
-      "password": "phincon123",
-      "isEmployer": true
-    },
-    {
-      "id": "17e428e7-9ec5-40f8-ba48-621f989cb696",
-      "fullname": "tes",
-      "email": "tes",
-      "password": "tes",
-      "isEmployer": true
-    },
-    {
-      "id": "9fe7aeb1-b079-45b3-abdd-56ab15ea4c82",
-      "fullname": "tes",
-      "email": "tes",
-      "password": "tes",
-      "isEmployer": true
-    },
-    {
-      "id": "da30a564-1726-416e-ba00-1a8302cea0f7",
-      "fullname": "tes123",
-      "email": "tes123",
-      "password": "tes123",
-      "isEmployer": false
-    },
-    {
-      "id": "6377d16e-c9a4-4cdb-b3c0-826da95b9081",
-      "fullname": "iqbal",
-      "email": "iqbal",
-      "password": "iqbal",
-      "isEmployer": false
-    },
-    {
-      "id": "d97b76a1-9d25-4109-89d8-4526fb0c4af4",
-      "fullname": "iqbal123",
-      "email": "iqbal123",
-      "password": "iqbal123",
-      "isEmployer": false
     }
   ]
 }
