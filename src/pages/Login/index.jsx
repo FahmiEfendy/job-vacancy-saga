@@ -22,7 +22,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { login } from './actions';
+// import { login } from './actions';
 import classes from './style.module.scss';
 import { useNavigate } from 'react-router-dom';
 // import { encryptPayload } from '@utils/encryptPayload';
@@ -47,7 +47,7 @@ export default function Login() {
       email: user.email,
       password: user.password,
     };
-    dispatch(login(dataUser));
+    // dispatch(login(dataUser));
     navigate('/');
   };
 
