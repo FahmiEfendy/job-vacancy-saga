@@ -1,0 +1,63 @@
+@import '@styles/base';
+
+.register {
+  .container {
+    @include apply-at-md-size {
+      @include wrapper;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      .card-item {
+        @include directionY;
+        justify-content: center;
+        gap: 15px;
+        color: var(--color-text-card);
+        background-color: var(--color-bg-card);
+        padding: 40px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        .card-head {
+          text-align: center;
+          h2 {
+            text-decoration: underline;
+            text-decoration-color: var(--color-bg-btn);
+          }
+        }
+        .input-form {
+          @include directionY;
+          gap: 20px;
+          .input-item {
+            @include directionY;
+            input {
+              outline: none;
+              border: 2px solid var(--color-bg-input-card);
+              height: 45px;
+              border-radius: 8px;
+              padding: 0 20px;
+              @include apply-at-md-size {
+                width: 340px;
+              }
+            }
+            input:focus {
+              border: 2px solid var(--color-bg-btn);
+            }
+          }
+        }
+        button {
+          @include btnPrimary;
+          padding: 13px;
+        }
+        .regis {
+          text-align: center;
+          font-size: 16px;
+          p a {
+            color: var(--color-bg-btn);
+          }
+        }
+      }
+    }
+  }
+}

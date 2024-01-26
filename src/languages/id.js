@@ -19,5 +19,7 @@ export default {
   app_header_title_job2: "Lowongan",
   app_header_desc: "Tanggung Jawab",
   app_header_req: "Persyaratan minimum",
+  app_login_regis_label: 'Tidak punya akun? Klik ',
+  app_login_regis_label_link: 'Disini',
 
 };

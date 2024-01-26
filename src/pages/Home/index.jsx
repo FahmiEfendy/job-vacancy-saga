@@ -5,7 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import { ping } from '@containers/App/actions';
 import classes from './style.module.scss';
 
-import GridJobs from "../../components/GridJobs"
+import GridJobs from '../../components/GridJobs';
+import { selectJob } from './selectors';
+import { getJobRequest } from './actions';
 
 // data = {
 //   id: '',
@@ -15,7 +17,7 @@ import GridJobs from "../../components/GridJobs"
 //   employmentType: '',
 // };
 
-const Home = () => {
+const Home = ({ job, users }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const Home = () => {
               <FormattedMessage id="app_btn_hero_title" />
             </a>
             <a href="" className={classes['btn-secondary']}>
-            <FormattedMessage id="app_btn_hero_title2" />
+              <FormattedMessage id="app_btn_hero_title2" />
             </a>
           </div>
         </div>
@@ -47,8 +49,11 @@ const Home = () => {
       <section className={classes['job-list']}>
         <div className={classes['container']}>
           <div className={classes['list-header']}>
-            <h2><FormattedMessage id="app_job_title_header" /></h2>
-            <p><FormattedMessage id='app_job_desc_header' />
+            <h2>
+              <FormattedMessage id="app_job_title_header" />
+            </h2>
+            <p>
+              <FormattedMessage id="app_job_desc_header" />
             </p>
           </div>
 
@@ -56,7 +61,9 @@ const Home = () => {
           <div className={classes['search-job']}>
             <div className={classes['search-item']}>
               <input type="text" />
-              <button><FormattedMessage id="app_btn_search_title" /></button>
+              <button>
+                <FormattedMessage id="app_btn_search_title" />
+              </button>
             </div>
           </div>
 
@@ -66,6 +73,6 @@ const Home = () => {
       </section>
     </>
   );
-};                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+};
 
 export default Home;
