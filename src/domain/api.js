@@ -14,6 +14,8 @@ const urls = {
   deleteJob: '/job',
 
   createJobApplication: '/application',
+  getJobApplication: '/application',
+  deleteJobApplication: '/application',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -44,6 +46,8 @@ export const createJob = (data) => callAPI(urls.createJob, 'POST', {}, {}, data)
 export const deleteJob = (id) => callAPI(`${urls.deleteJob}/${id}`, 'DELETE');
 
 export const createJobApplication = (data) => callAPI(urls.createJobApplication, 'POST', {}, {}, data);
+export const getJobApplication = (id) => callAPI(urls.getJobApplication, 'GET', {}, id);
+export const deleteJobApplication = (id) => callAPI(`${urls.deleteJobApplication}/${id}`, 'DELETE');
 
 export const register = (dataUser) => {
   return callAPI(urls.register, 'POST', {}, {}, dataUser);

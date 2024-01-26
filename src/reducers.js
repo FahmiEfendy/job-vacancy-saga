@@ -9,6 +9,8 @@ import jobDetailReducer, { storedKey as storedJobDetailReducer } from '@pages/Jo
 import createJobReducer, { storedKey as storedCreateJobReducer } from '@pages/JobCreate/reducer';
 import loginReducer, { storedKey as storedCreateLoginReducer } from '@pages/Login/reducer';
 
+import jobApplicationReducer, { storedKey as storedJobApplicationReducer } from '@pages/JobApplication/reducer';
+
 import { mapWithPersistor } from './persistence';
 
 const storedReducers = {
@@ -19,6 +21,8 @@ const storedReducers = {
   jobDetail: { reducer: jobDetailReducer, whitelist: storedJobDetailReducer },
   createJob: { reducer: createJobReducer, whitelist: storedCreateJobReducer },
   login: { reducer: loginReducer, whitelist: storedCreateLoginReducer },
+
+  jobApplication: { reducer: jobApplicationReducer, whitelist: storedJobApplicationReducer },
 };
 
 const temporaryReducers = {

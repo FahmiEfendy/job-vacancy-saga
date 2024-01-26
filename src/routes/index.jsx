@@ -6,6 +6,7 @@ import Register from '@pages/Register';
 import JobCreate from '@pages/JobCreate';
 import JobDetail from '@pages/JobDetail';
 import NotFound from '@pages/NotFound';
+import JobApplication from '@pages/JobApplication';
 
 const routes = [
   {
@@ -42,6 +43,14 @@ const routes = [
     name: 'Job Detail',
     protected: false,
     component: JobDetail,
+    layout: MainLayout,
+  },
+  // TODO: Change to true later
+  {
+    path: '/application/',
+    name: 'Application List',
+    protected: false,
+    component: JobApplication,
     layout: MainLayout,
   },
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
